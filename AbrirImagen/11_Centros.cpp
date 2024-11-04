@@ -63,7 +63,7 @@ void detectarFormas(Mat& imagen) {
 
 
 
-int main() {
+int A11main() {
     Mat A = imread("figuresEq1.png", IMREAD_GRAYSCALE);   // Leemos la imagen en escala de grises
     if (A.empty()) {
         cout << "No se pudo cargar la imagen." << endl;

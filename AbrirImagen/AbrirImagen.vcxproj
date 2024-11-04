@@ -144,6 +144,7 @@
     <ClCompile Include="09_dilatacion.cpp" />
     <ClCompile Include="11_Centros.cpp" />
     <ClCompile Include="10_dilatacion.cpp" />
+    <ClCompile Include="12_Construir.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

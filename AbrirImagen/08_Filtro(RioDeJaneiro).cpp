@@ -43,7 +43,6 @@ int A8main() {
                     aux+= image2.at<uchar>(j+mono, i+mango);
                 }
             }
-            //tam = tam + tam + 1;
             image2.at<uchar>(j, i)=aux/(tam*tam);
             
         }
