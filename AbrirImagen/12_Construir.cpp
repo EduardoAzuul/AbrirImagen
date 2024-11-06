@@ -21,17 +21,9 @@ int main() {
     Mat vertical (Original.rows, (Original.cols), CV_32FC1, Scalar(0));
     Mat horizontal(Original.rows, (Original.cols), CV_32FC1, Scalar(0));
 
-
-    namedWindow("horizontal", WINDOW_AUTOSIZE);// Create a window for display.
-    imshow("horizontal", horizontal);                   // Show our image inside it.
-
-    waitKey(10);
-
-    namedWindow("vertical", WINDOW_AUTOSIZE);// Create a window for display.
-    imshow("vertical", vertical);                   // Show our image inside it.
-
-    waitKey(0);
-
+    Mat vertical2(Original.rows, (Original.cols), CV_8UC1, Scalar(0));
+    Mat horizontal2(Original.rows, (Original.cols), CV_8UC1, Scalar(0));
+    Mat final(Original.rows, (Original.cols), CV_8UC1, Scalar(0));
 
 
     Mat gx = (Mat_<float>(3, 3) <<
@@ -61,16 +53,35 @@ int main() {
             horizontal.at<float>(i, j) = sum1;
             vertical.at<float>(i, j) = sum2;
 
+            horizontal2.at<uchar>(i, j) = uchar(abs(sum1));
+            vertical2.at<uchar>(i, j) = uchar(abs(sum2));
+            final.at<uchar>(i, j) = sqrt(uchar(abs(sum1)) * uchar(abs(sum1)) + uchar(abs(sum2)) * uchar(abs(sum2)));
+
         }
     }
 
-    namedWindow("horizontal", WINDOW_AUTOSIZE);// Create a window for display.
-    imshow("horizontal", horizontal);                   // Show our image inside it.
+    namedWindow("horizontal1", WINDOW_AUTOSIZE);// Create a window for display.
+    imshow("horizontal1", horizontal);                   // Show our image inside it.
 
-    waitKey(0);
+    waitKey(10);
+
+    namedWindow("vertical1", WINDOW_AUTOSIZE);// Create a window for display.
+    imshow("vertical1", vertical);                   // Show our image inside it.
+
+    waitKey(10);
+
+    namedWindow("horizontal", WINDOW_AUTOSIZE);// Create a window for display.
+    imshow("horizontal", horizontal2);                   // Show our image inside it.
+
+    waitKey(10);
 
     namedWindow("vertical", WINDOW_AUTOSIZE);// Create a window for display.
-    imshow("vertical", vertical);                   // Show our image inside it.
+    imshow("vertical", vertical2);                   // Show our image inside it.
+
+    waitKey(10);
+
+    namedWindow("final", WINDOW_AUTOSIZE);// Create a window for display.
+    imshow("final", final);                   // Show our image inside it.
 
     waitKey(0);
 
